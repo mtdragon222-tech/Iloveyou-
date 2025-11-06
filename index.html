@@ -125,6 +125,186 @@ button:hover{transform:scale(1.1);}
   50%{transform:translateY(50vh) rotate(180deg) translateX(10px);}
   100%{transform:translateY(100vh) rotate(360deg) translateX(-10px);opacity:0;}
 }
+</style>
+</head>
+<body>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+  <source src="BIBASH JK-LONELY REMIX.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Avatar -->
+<img src="IMG_20251013_154859.jpg" id="logo" alt="User Logo">
+
+<!-- Profile Box -->
+<div id="profileBox">
+USERNAME : 💔<br>
+NAME : MTDRAGON22<br>
+BIO : 🗣️ :💭 <span style="font-weight:bold;font-style:italic;">sɪʟᴇɴᴄᴇ ɪs ɴᴏᴛ ᴀʟᴡᴀʏs ᴇɢᴏ, sᴏᴍᴇᴛɪᴍᴇs ɪᴛ ʜɪᴅᴇs ᴀ ʟᴏᴛ ᴏꜰ ᴘᴀɪɴ 💔</span><br><br>
+<a href="https://www.facebook.com/share/1JsBpdyC2Q/" target="_blank" class="profile-link-inline">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="FB"> FACEBOOK
+</a><br>
+<a href="https://www.instagram.com/mtdragon22?igsh=MXBuZG40cHE4Mjg1Zw==" target="_blank" class="profile-link-inline">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="IG"> INSTAGRAM
+</a><br>
+<a href="https://www.tiktok.com/@hari_gautam_?_r=1&_t=ZS-917ZB08XF8a" target="_blank" class="profile-link-inline">
+<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TT"> TIKTOK
+</a>
+</div>
+
+<!-- Aurora, clouds, moon, stars -->
+<div class="aurora"></div>
+<div class="cloud"></div>
+<div class="cloud"></div>
+<div class="moon"></div>
+<div id="stars"></div>
+
+<!-- Main -->
+<div class="center-container">
+  <p id="intro" style="font-size:1.3rem;color:#ff8fab;font-weight:bold;font-style:italic;margin-bottom:10px;">
+  ɪ ᴡᴀɴᴛ ᴛᴏ sᴀʏ ʏᴏᴜ sᴏᴍᴇᴛʜɪɴɢ 🤕
+  </p>
+
+  <div class="paper-card" id="proposalCard"></div>
+
+  <div id="options" style="display:none;margin-top:20px;">
+    <p style="font-size:1.5rem;color:#ff4d6d;">ᴅᴏ ʏᴏᴜ ʟᴏᴠᴇ ᴍᴇ? 💘</p>
+    <button class="option-btn" onclick="selectYes()">ʏᴇs 💖</button>
+    <button class="option-btn" onclick="selectNo()">ɴᴏ 💔</button>
+  </div>
+
+  <p id="result" style="font-size:1.5rem;color:white;margin-top:20px;"></p>
+  <button id="revealBtn" onclick="showProposal()">💌 ʀᴇᴠᴇᴀʟ</button>
+</div>
+
+<!-- Love Letter -->
+<div class="love-letter" id="loveLetter">
+💌💖 ᴅᴇᴀʀ s! 🌹
+
+ɪ ʟᴏᴠᴇ ʏᴏᴜ ᴍᴏʀᴇ ᴛʜᴀɴ ᴡᴏʀᴅs ᴄᴀɴ sᴀʏ 🌙  
+ʏᴏᴜ’ʀᴇ ᴍʏ ғᴀᴠᴏʀɪᴛᴇ ᴘᴇʀsᴏɴ, ᴍʏ ᴘᴇᴀᴄᴇ, ᴍʏ ғᴏʀᴇᴠᴇʀ 💐💫
+
+ɪꜰ ʏᴏᴜ ᴀᴄᴄᴇᴘᴛ, ᴍꜱɢ ᴍᴇ 💌
+</div>
+
+<script>
+// Stars
+for(let i=0;i<150;i++){
+  let star=document.createElement('div');
+  star.classList.add('star');
+  star.style.top=Math.random()*100+'vh';
+  star.style.left=Math.random()*100+'vw';
+  let size=Math.random()*3+1;
+  star.style.width=size+'px';star.style.height=size+'px';
+  document.body.appendChild(star);
+}
+
+// Typewriter
+function showProposal(){
+  document.getElementById('intro').style.display='none';
+  const card=document.getElementById('proposalCard'); 
+  card.style.display='block';
+  document.getElementById('revealBtn').style.display='none';
+  document.getElementById('logo').style.display='block';
+  const msg="💖 ʜᴇʏ s! 🌹 ɪ ᴊᴜsᴛ ᴡᴀɴᴛᴇᴅ ᴛᴏ ᴛᴇʟʟ ʏᴏᴜ...I LOVE YOU 💕✨";
+  card.textContent='';
+  let i=0;
+  let typer=setInterval(()=>{
+    if(i<msg.length){card.textContent+=msg[i];i++;}
+    else{clearInterval(typer);document.getElementById('options').style.display='block';}
+  },100);
+}
+
+// Yes
+function selectYes(){
+  document.getElementById('options').style.display='none';
+  document.getElementById('proposalCard').style.display='none';
+  document.getElementById('revealBtn').style.display='none';
+  document.getElementById('result').textContent='';
+  document.getElementById('logo').style.display='none';
+  document.getElementById('profileBox').style.display='none';
+  for(let i=0;i<60;i++){
+    setTimeout(()=>{
+      let rose=document.createElement('div');
+      rose.textContent='🥀';
+      rose.style.position='fixed';
+      rose.style.left=Math.random()*100+'vw';
+      rose.style.top='-50px';
+      rose.style.fontSize=Math.random()*25+20+'px';
+      rose.style.opacity=0.9;
+      rose.style.animation='fall 2s linear forwards';
+      document.body.appendChild(rose);
+      setTimeout(()=>rose.remove(),2100);
+    },i*50);
+  }
+  setTimeout(()=>{document.getElementById('loveLetter').style.display='block';},2100);
+}
+
+// No
+function selectNo(){
+  document.getElementById('result').textContent="💔 ɪᴛ's ᴏᴋᴀʏ… ᴍᴀʏʙᴇ ʟᴀᴛᴇʀ 💔";
+  document.getElementById('options').style.display='none';
+  document.getElementById('logo').style.display='none';
+  document.getElementById('profileBox').style.display='none';
+}
+
+// Toggle Profile
+document.getElementById('logo').addEventListener('click',()=>{
+  const box=document.getElementById('profileBox');
+  box.style.display=box.style.display==='block'?'none':'block';
+});
+
+// 🎵 Music start on click
+document.body.addEventListener("click", () => {
+  const audio=document.getElementById("bgMusic");
+  audio.play().catch(err=>console.log("Audio play error:",err));
+},{once:true});
+</script>
+
+</body>
+</html>
+/* Paper card */
+.paper-card{
+  background:#fff0f5;color:#ff4d6d;padding:25px 30px;border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.4);display:none;max-width:500px;
+  font-weight:bold;font-family:'Arial',sans-serif;font-size:1.5rem;
+  text-shadow:2px 2px 10px rgba(0,0,0,0.5);z-index:5;line-height:1.5rem;
+  white-space:pre-wrap;
+}
+
+/* Love letter */
+.love-letter{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#0b0a1e;color:#ff4d6d;padding:30px;border-radius:20px;
+  max-width:450px;font-size:1.2rem;font-weight:bold;font-style:italic;
+  text-shadow:1px 1px 4px rgba(0,0,0,0.5);display:none;z-index:10;
+  box-shadow:0 10px 20px rgba(0,0,0,0.5);animation:fadeIn 1.5s ease-in forwards;
+  line-height:1.5rem;white-space:pre-wrap;font-family:'Arial',sans-serif;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* Center */
+.center-container{
+  z-index:4;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  position:relative;width:100%;max-width:600px;
+}
+button{
+  background:linear-gradient(90deg,#ff4d6d,#ff8fab);color:white;border:none;
+  padding:12px 25px;font-size:1.2rem;border-radius:30px;cursor:pointer;margin:8px;
+  box-shadow:0 0 20px rgba(255,77,109,0.6);transition:0.4s;
+  font-family:'Arial',sans-serif;
+}
+button:hover{transform:scale(1.1);}
+.option-btn{background:linear-gradient(90deg,#ff8fab,#ff4d6d);}
+
+/* Rose animation */
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg);opacity:1;}
+  50%{transform:translateY(50vh) rotate(180deg) translateX(10px);}
+  100%{transform:translateY(100vh) rotate(360deg) translateX(-10px);opacity:0;}
+}
 
 /* Music toggle button */
 #musicToggleBtn{
